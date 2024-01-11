@@ -91,29 +91,30 @@ def main():
     if submit_button:
         if uploaded_files:
             # Process uploaded PDFs (you can add your backend logic here)
-            raw_text = ''
-            text_chunks = ''
-            for pdf_file in uploaded_files:
-                # Check if the file is a PDF
-                if pdf_file.type == "application/pdf":
-                    raw_text += get_pdf_text(pdf_file)
-                    # pdf_reader = PyPDF2.PdfFileReader(pdf_file)
-                    # num_pages = pdf_reader.numPages
-                    # st.write(f"Uploaded: {pdf_file.name} - Number of Pages: {num_pages}")
-                    # Perform operations with the PDF file here (e.g., count pages, extract text, etc.)
-            text_chunks= get_text_chunks(raw_text)
-            # st.write(text_chunks)
-            get_vector_store(text_chunks)
-            st.success('Files processed successfully')
-            # with st.spinner('Processing...'):
-            #     raw_text = get_pdf_text(uploaded_files)
-            #     text_chunks = get_text_chunks(raw_text)
-            #     get_vector_store(text_chunks)
-            #     st.success('Done')
-            # for pdf_file in uploaded_files:
-            #     # Example: Display the names of the uploaded PDF files
-            #     st.sidebar.write(f"Uploaded: {pdf_file.name}")
-            #     raw_text = get_pdf_text(pdf_file)
+            with st.spinner('Processing...'):
+                raw_text = ''
+                text_chunks = ''
+                for pdf_file in uploaded_files:
+                    # Check if the file is a PDF
+                    if pdf_file.type == "application/pdf":
+                        raw_text += get_pdf_text(pdf_file)
+                        # pdf_reader = PyPDF2.PdfFileReader(pdf_file)
+                        # num_pages = pdf_reader.numPages
+                        # st.write(f"Uploaded: {pdf_file.name} - Number of Pages: {num_pages}")
+                        # Perform operations with the PDF file here (e.g., count pages, extract text, etc.)
+                text_chunks= get_text_chunks(raw_text)
+                # st.write(text_chunks)
+                get_vector_store(text_chunks)
+                st.success('Files processed successfully')
+                # with st.spinner('Processing...'):
+                #     raw_text = get_pdf_text(uploaded_files)
+                #     text_chunks = get_text_chunks(raw_text)
+                #     get_vector_store(text_chunks)
+                #     st.success('Done')
+                # for pdf_file in uploaded_files:
+                #     # Example: Display the names of the uploaded PDF files
+                #     st.sidebar.write(f"Uploaded: {pdf_file.name}")
+                #     raw_text = get_pdf_text(pdf_file)
    
 if __name__ == "__main__":
     main()
