@@ -71,7 +71,7 @@ def user_input(user_question):
 
 def main():
     # pass
-    st.sidebar.title("Menu")
+    st.sidebar.title("Upload your pdf documents here and chat with them")
     uploaded_files = st.sidebar.file_uploader("Upload multiple PDFs", accept_multiple_files=True)
     submit_button = st.sidebar.button("Submit & Process")
 
