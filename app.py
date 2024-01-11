@@ -105,7 +105,7 @@ def main():
                 text_chunks= get_text_chunks(raw_text)
                 # st.write(text_chunks)
                 get_vector_store(text_chunks)
-                st.success('Files processed successfully')
+                st.success('Files processed successfully. Shoot your questions to gemini')
                 # with st.spinner('Processing...'):
                 #     raw_text = get_pdf_text(uploaded_files)
                 #     text_chunks = get_text_chunks(raw_text)
